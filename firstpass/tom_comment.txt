@@ -1,0 +1,18 @@
+Hi Dan
+
+On your two criticisms
+
+"The sample is not valid". The sample may not match the demographic characteristics of who was actually exposed to fake news, but that doesn't mean it is an invalid sample for drawing  inferences about the cognitive mechanisms which may affect fake news responses. Specifically Pennycook and Rand want to test the interaction of partisan bias and cognitive reflection. Yes, you have to make an inferential leap to suppose that these same mechanisms - if true - also hold for those who experience fake news "in the wild", but if you're willing to grant that there is some universality in the cognitive mechanisms that is justified, right?
+
+Fwiw, I think there are other sample issues, given the peculiarities of mturk samples (extreme non-naivety to psychology experiments, high levels of low-involvement responding)
+
+"the data do not support the key inference that P&R draw". Yes, the fake news stories are rated, on average, as inaccurate. They were selected to be "implausible" after all. But there is still variation across individuals and across items in how they were rated. Wouldn't it be fair to draw inferences about the acceptance of fake news from the factors (such as partisan bias and cognitive reflection) which are related to this variation, low as it is?
+
+Again, fwiw, I have downloaded the data and had a look and I think the use of a four point (as published) or two point (as preregistered) rating of accuracy means that this data is tricky to analyse, and especially treating this rating scales as continuous variables. There may be meaningful variation, but - as you say - it is hard to be sure.
+
+
+Regarding the second point, on (cognitive) reflection, I think I have just contradicted your claim rather than provided any argument against it. You say that there is variation in the data, but that it occurs outside the range which is relevant to the question (i.e. on average nobody accepted the fake news). I said that variation could still be informative. My intuition is that it is, but how to arbitrate? Not sure!
+
+Would you accept a re-analysis of the data which looked at the individual instances where fake news was rated as accurate (ie 3 or 4 on their 4-point scale) and developed a model which predicted this from partisan bias and CRT score? 
+
+Although the average rating of fake news was as "inaccurate", I just checked the data and (if I crunched it right), most individuals rated one or more fake news stories as accurate. I can't think of a better way to do this, so I'm going to tweet you the graph and link to it here https://twitter.com/tomstafford/status/1055748703456321536
