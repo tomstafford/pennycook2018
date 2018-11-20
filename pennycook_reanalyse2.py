@@ -57,8 +57,8 @@ fakes=['Fake1_Accurate','Fake2_Accurate','Fake3_Accurate','Fake4_Accurate','Fake
        'Fake11_Accurate','Fake12_Accurate','Fake13_Accurate','Fake14_Accurate','Fake15_Accurate']
 
 plt.clf()
-df1[fakes].sum(axis=1).hist(rwidth=0.85)
-plt.xlabel('Fake rated accurate (out of 15)',fontsize=18)
+df1[fakes].sum(axis=1).hist(bins=11,rwidth=0.85)
+plt.xlabel('Fakes rated accurate (out of 15)',fontsize=18)
 plt.ylabel('Frequency',fontsize=18)
 plt.xticks(np.arange(0.5,11,1),[str(a) for a in range(11)]) #make it clear which each column represents
 plt.savefig('s1_FA_freq.png',bbox_inches='tight')
@@ -244,7 +244,7 @@ plt.legend(loc=2)
 plt.ylim([0,3])
 plt.xlabel('Cognitive Reflection Test (CRT) score')
 plt.ylabel('discrimination (d\')')
-plt.title('Study 1')
+#plt.title('Study 1')
 plt.savefig('s1_dprime_all.png',bbox_inches='tight')
 
 '''
@@ -392,5 +392,5 @@ plt.legend(loc=2)
 plt.ylim([0,3])
 plt.xlabel('Cognitive Reflection Test (CRT) score')
 plt.ylabel('discrimination (d prime)')
-plt.title('Study 2')
+#plt.title('Study 2')
 plt.savefig('s2_dprime_all.png',bbox_inches='tight')

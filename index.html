@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>
+	Pennycook & Rand (2018) reanalysis 
+	</title>
+	<style type="text/css">
+		div.slide {
+			width: 640px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		p.nav {
+			text-align: center;
+			padding: 6px;
+			background: #ddd;
+			font-size: 1.2rem;
+		}
+		p.head {
+			text-align: center;
+			font-weight: bold;
+			padding: 6px;
+			background: #ddd;
+			font-size: 2.0rem;
+		}
+		body {
+			background: #f6f6f6;
+		}
+		p.flannel {
+			font-size: 0.8rem;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="main">
+
+	<div class="slide">
+	<p class = "head">Lazy <i>and</i> biased? Reanalysis of Pennycook & Rand's (2018) data</p>
+	<p>A light reanalysis of Pennycook, G., & Rand, D. G. (2018). <a href="https://www.sciencedirect.com/science/article/pii/S001002771830163X
+">Lazy, not biased: Susceptibility to partisan fake news is better explained by lack of reasoning than by motivated reasoning</a>. <i>Cognition</i>. (<a href="https://osf.io/f5dgh/">OSF repo</a>).</p>
+<p>This paper claims that lack of cognitive reflection drives people's susceptibility to fake news, not partisan bias. Dan Kahan (<a href="http://www.culturalcognition.net/blog/2018/10/25/who-falls-for-fake-news-apparently-no-one.html">here</a>) suggests that the data really show that <i>nobody</i> falls for fake news. Because the authors provide the raw data, I thought I'd look into this by plotting the number of fake stories each participate rated as 'accurate':</p>
+	<p class="nav">Study 1: </p>
+<img src="s1_FA_freq.png">
+	<p class="nav">Study 2: </p>
+<img src="s2_FA_freq.png">
+	<p>Conclusion: These histograms disconfirm the suggestion that 'nobody' falls for fake news. In these studies, the majority of people fall for some fake news. While it is true that the 'fake news' stories used in the study were, on average, rated as low in accuracy, many individual stories by many individual participants were rated as accurate. People fell for them.</p>
+	<p class = "head">Lazy <i>and</i> biased</p>
+	<p>The original study conducted several analyses. The key one for testing their theory, in my opinion, is to calculate <i>sensitivity</i> to story accuracy for each participant - to ask, in effect, how good they are at discriminating fake from real news. This is essential to pull out general effects of people's willingness to rate all stories they see as accurate (or inaccurate) from their specific ability to tell fake from real. (This separation of sensitivity from response bias is fundamental to <a href="https://en.wikipedia.org/wiki/Detection_theory">signal detection theory</a>).</p>
+	<p>Pennycook & Rand do conduct a discrimination analysis, but they don't do the (in my opinion) key data visualisation  and they use zero-normed scoring so you can't tell from their measure if people have any ability to tell real from fake (which also seems important to know). So, with their data I reanalysed the data to calculate a measure of discriminative ability and plot it against cognitive reflection (measured by CRT score) for bias-congruent and bias-incongruent news stories (and neutral news stories, for study 1 only).<p>
+	<p class="nav">Study 1: </p>
+<img src="s1_dprime_all.png">
+	<p class="nav">Study 2: </p>
+<img src="s2_dprime_all.png">
+	<p>Conclusion: you can see the clear positive relation between cognitive reflection and discrimination. As Pennycook & Rand discuss, higher CRT is associated with a greater ability to tell real from fake. However, this analysis also suggests that there is an effect of bias - in contrast to the title of the original study. Discrimination scores are higher for incongruent news - suggesting that people find it harder to tell fake from real for news which aligns with their preconceptions. Additionally, it looks - at least for study 1 - that this effect of bias interacts with cognitive reflection, so that for individuals scoring low on cognitive reflection partisan bias doesn't much affect their discrimination, but for individuals higher in cognitive bias, partisan bias particular raises ability to discriminate real from fake for news which doesn't align with their preconceptions (incongruent items).</p>
+	<p>Note also that for the full range of cognitive reflection, for all news types, the average participant's sensitivity was well above zero. Even for the least reflective participants, and for stories which play into their partisan bias, they retain some ability to discriminate real from fake news.</p>
+	<p>The statistical significance of these effects can be confirmed using regression modelling (although for exploratory analysis NHST is of debatable value). Details are in the notebook link below. Thanks to Mate Gyurkovics for help with regression modelling.</p>
+	<p>
+
+	<p class="nav">Colophon</p>
+	<p>Full details of this analysis available in a <a href="pennycook2018_reanalysis.html">Jupyter notebook</a>, including caveats, acknowledgements and unanswered questions.
+	<p>This <a href="https://github.com/tomstafford/pennycook2018/">github repo</a> provides all the files and code for running the analysis</p>
+	<p class="flannel"><a href="http://www.tomstafford.staff.shef.ac.uk/">Tom Stafford</a>, 2018. Theme adapted from <a href="http://interconnected.org/notes/2014/10/interconnected/">Matt Webb's</a>.</a></p>
+	</div>
+	
+	</div>
+
+</body>
+</html>
+
