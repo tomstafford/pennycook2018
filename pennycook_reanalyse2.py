@@ -71,8 +71,8 @@ plt.savefig('s1_FA_freq.png',bbox_inches='tight')
 #So we dichotomise accuracy judgements and calculate d'
 
 #fake items, by partisan bias
-CFakes=df1[['Fake1_2','Fake2_2','Fake3_2','Fake4_2','Fake5_2']].apply(pd.to_numeric,errors='coerce')
-LFakes=df1[['Fake6_2','Fake7_2','Fake8_2','Fake9_2','Fake10_2']].apply(pd.to_numeric,errors='coerce')
+CFakes=df1[['Fake1_2','Fake2_2','Fake3_2','Fake4_2','Fake5_2']].apply(pd.to_numeric,errors='coerce') #pro-republican
+LFakes=df1[['Fake6_2','Fake7_2','Fake8_2','Fake9_2','Fake10_2']].apply(pd.to_numeric,errors='coerce') #pro-democratic
 NFakes=df1[['Fake11_2','Fake12_2','Fake13_2','Fake14_2','Fake15_2']].apply(pd.to_numeric,errors='coerce')
 #real items, by partisan bias
 CReals=df1[['Real1_2','Real2_2','Real3_2','Real4_2','Real5_2']].apply(pd.to_numeric,errors='coerce')
@@ -150,9 +150,9 @@ df1['dprimeC']=df1.apply(dprimeCfunc,axis=1)
 df1['dprimeL']=df1.apply(dprimeLfunc,axis=1)
 df1['dprimeN']=df1.apply(dprimeNfunc,axis=1)
 
-#re-code according to participant partisan bias - Dems looking at C news | Reps looking at L news = congruent, 
-df1['cong_dprime']=df1[(df1['ClintonTrump']=='1')]['dprimeC'].append(df1[(df1['ClintonTrump']=='2')]['dprimeL'])
-df1['incong_dprime']=df1[(df1['ClintonTrump']=='1')]['dprimeL'].append(df1[(df1['ClintonTrump']=='2')]['dprimeC'])
+#re-code according to participant partisan bias - Dems looking at pro-dem (L) news | Reps looking at L news = congruent, 
+df1['cong_dprime']=df1[(df1['ClintonTrump']=='1')]['dprimeL'].append(df1[(df1['ClintonTrump']=='2')]['dprimeC'])
+df1['incong_dprime']=df1[(df1['ClintonTrump']=='1')]['dprimeC'].append(df1[(df1['ClintonTrump']=='2')]['dprimeL'])
 
 #highly correlated with discernment scores, e.g.
 np.corrcoef(df1['dprimeN'],df1['N_Discernment'])
@@ -216,7 +216,7 @@ f = lambda x, *p: np.polyval(p, x) #our underlying model is a general polynomial
 plt.clf()
 
 #loop through three conditions
-for cond,condlabel,colour in zip(['I','N','C'],['Incongruent','Neutral','Congruent'],['blue','black','green']):
+for cond,condlabel,colour in zip(['C','I','N'],['Congruent','Incongruent','Neutral'],['green','blue','black']):
 
     x = df_wide['CRT']
     y = df_wide[cond]
@@ -283,27 +283,27 @@ plt.savefig('s2_FA_freq.png',bbox_inches='tight')
 
 # need to check this coding - since it makes assumption that C news item are numerically first
 def congsort_fakes(row):
-    if row['ClintonTrump']=='1':
+    if row['ClintonTrump']=='2':
         return row['fakes_ac1_to_6']
-    elif row['ClintonTrump']=='2':
+    elif row['ClintonTrump']=='1':
         return row['fakes_ac7_to_12']
 
 def congsort_reals(row):
-    if row['ClintonTrump']=='1':
+    if row['ClintonTrump']=='2':
         return row['reals_ac1_to_6']
-    elif row['ClintonTrump']=='2':
+    elif row['ClintonTrump']=='1':
         return row['reals_ac7_to_12']
 
 def incongsort_fakes(row):
-    if row['ClintonTrump']=='2':
+    if row['ClintonTrump']=='1':
         return row['fakes_ac1_to_6']
-    elif row['ClintonTrump']=='1':
+    elif row['ClintonTrump']=='2':
         return row['fakes_ac7_to_12']
 
 def incongsort_reals(row):
-    if row['ClintonTrump']=='2':
+    if row['ClintonTrump']=='1':
         return row['reals_ac1_to_6']
-    elif row['ClintonTrump']=='1':
+    elif row['ClintonTrump']=='2':
         return row['reals_ac7_to_12']
 
 
@@ -364,7 +364,7 @@ df2.to_csv('dprimedata_s2_wide.csv')
 f = lambda x, *p: np.polyval(p, x) #our underlying model
 plt.clf()
 
-for cond,condlabel,colour in zip(['dprimeI','dprimeC'],['Incongruent','Congruent'],['blue','green']):
+for cond,condlabel,colour in zip(['dprimeC','dprimeI'],['Congruent','Incongruent'],['green','blue']):
 
     x = df2['CRT_ACC']
     y = df2[cond]
