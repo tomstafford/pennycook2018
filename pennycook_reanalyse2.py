@@ -216,7 +216,7 @@ f = lambda x, *p: np.polyval(p, x) #our underlying model is a general polynomial
 plt.clf()
 
 #loop through three conditions
-for cond,condlabel,colour in zip(['C','I','N'],['Congruent','Incongruent','Neutral'],['green','blue','black']):
+for cond,condlabel,colour in zip(['C','N','I'],['Congruent','Neutral','Incongruent'],['green','black','blue']):
 
     x = df_wide['CRT']
     y = df_wide[cond]
