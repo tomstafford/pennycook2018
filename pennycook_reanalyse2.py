@@ -394,3 +394,40 @@ plt.xlabel('Cognitive Reflection Test (CRT) score')
 plt.ylabel('discrimination (d prime)')
 #plt.title('Study 2')
 plt.savefig('s2_dprime_all.png',bbox_inches='tight')
+
+
+'''
+# looking at familiaty with pro-dem (L) and pre-rep (C) fake and real news confirms the expected pattern
+# (ie demo more familiar with pro-dem news, etc)
+
+fakes_famC=['Fake'+str(n+1)+'_1' for n in range(6)]
+reals_famC=['Real'+str(n+1)+'_1' for n in range(6)]
+
+
+fakes_famL=['Fake'+str(n+1)+'_1' for n in range(6,12)]
+reals_famL=['Real'+str(n+1)+'_1' for n in range(6,12)]
+
+
+#dems fam with pro-dem fake news
+df1[df1['ClintonTrump']=='1'][fakes_famL].sum(axis=1).mean()
+#reps fam with pro-dem fake news
+df1[df1['ClintonTrump']=='2'][fakes_famL].sum(axis=1).mean()
+
+#dems fam with pro-rep fake news
+df1[df1['ClintonTrump']=='1'][fakes_famC].sum(axis=1).mean()
+#reps fam with pro-rep fake news
+df1[df1['ClintonTrump']=='2'][fakes_famC].sum(axis=1).mean()
+
+
+
+#dems fam with pro-dem real news
+df1[df1['ClintonTrump']=='1'][reals_famL].sum(axis=1).mean()
+#reps fam with pro-dem real  news
+df1[df1['ClintonTrump']=='2'][reals_famL].sum(axis=1).mean()
+
+#dems fam with pro-rep real news
+df1[df1['ClintonTrump']=='1'][reals_famC].sum(axis=1).mean()
+#reps fam with pro-rep real news
+df1[df1['ClintonTrump']=='2'][reals_famC].sum(axis=1).mean()
+
+'''
